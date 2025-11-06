@@ -7,6 +7,7 @@ use Alaahany\ContaboApi\operations\images\ImagesManager;
 use Alaahany\ContaboApi\operations\instances\ComputeInstancesManager;
 use Alaahany\ContaboApi\operations\networks\PrivateNetworksManager;
 use Alaahany\ContaboApi\operations\storages\ObjectStorageManager;
+use Alaahany\ContaboApi\operations\snapshots\Snapshots;
 use Alaahany\ContaboApi\utilities\Config;
 use GuzzleHttp\Client as ClientG;
 use GuzzleHttp\Exception\ClientException;
@@ -40,7 +41,8 @@ class ContaboClient
         $this->getAccessToken();
         $this->defaultOptions['headers'] = [
             'Authorization' => "Bearer " . $this->getAccessToken(),
-            'x-request-id' => Uuid::uuid4()->toString()
+            'x-request-id' => Uuid::uuid4()->toString(),
+            'x-trace-id' => $this->APIUser
         ];
     }
 
@@ -96,6 +98,11 @@ class ContaboClient
     public function getImagesManagerInstance()
     {
         return new ImagesManager($this);
+    }
+
+    public function getSnapshotsInstance()
+    {
+        return new Snapshots($this);
     }
 
 }
