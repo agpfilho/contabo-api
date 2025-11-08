@@ -15,7 +15,7 @@ class Snapshots extends Operation
 	
     /**
      * List all snapshots.
-     * GET /compute/v1/snapshots
+     * GET /v1/compute/snapshots
      *
      * @param array $queryParameters Optional query parameters for filtering and pagination.
      * @return array
@@ -27,7 +27,7 @@ class Snapshots extends Operation
 
     /**
      * Create a new snapshot.
-     * POST /compute/v1/snapshots
+     * POST /v1/compute/snapshots
      *
      * @param int $instanceId The ID of the instance to create the snapshot from.
      * @param string $name The name of the snapshot.
@@ -45,7 +45,7 @@ class Snapshots extends Operation
 
     /**
      * Retrieve a specific snapshot.
-     * GET /compute/v1/snapshots/{snapshotId}
+     * GET /v1/compute/snapshots/{snapshotId}
      *
      * @param int $snapshotId The ID of the snapshot to retrieve.
      * @return array
@@ -57,7 +57,7 @@ class Snapshots extends Operation
 
     /**
      * Update a specific snapshot (e.g., change name).
-     * PATCH /compute/v1/snapshots/{snapshotId}
+     * PATCH /v1/compute/snapshots/{snapshotId}
      *
      * @param int $snapshotId The ID of the snapshot to update.
      * @param string $name The new name for the snapshot.
@@ -74,7 +74,7 @@ class Snapshots extends Operation
 
     /**
      * Delete a specific snapshot.
-     * DELETE /compute/v1/snapshots/{snapshotId}
+     * DELETE /v1/compute/snapshots/{snapshotId}
      *
      * @param int $snapshotId The ID of the snapshot to delete.
      * @return array
@@ -86,7 +86,7 @@ class Snapshots extends Operation
 
     /**
      * Revert an instance to a specific snapshot.
-     * POST /compute/v1/snapshots/{snapshotId}/revert
+     * POST /v1/compute/snapshots/{snapshotId}/revert
      *
      * @param int $snapshotId The ID of the snapshot to revert to.
      * @return array
